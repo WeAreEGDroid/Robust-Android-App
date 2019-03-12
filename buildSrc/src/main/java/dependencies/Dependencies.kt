@@ -13,6 +13,8 @@ object Dependencies {
         "androidx.appcompat:appcompat:${Versions.AndroidX.main}"
     const val AndroidGradlePlugin =
         "com.android.tools.build:gradle:${Versions.androidGradlePlugin}"
+    const val AndroidXCore =
+        "androidx.core:core:${Versions.AndroidX.main}"
 
     val AndroidXLibs = arrayOf(
         // Android Annotation

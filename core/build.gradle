@@ -1,29 +1,22 @@
 import dependencies.*
 
 apply {
-    plugin("com.android.application")
+    plugin("com.android.library")
     plugin("kotlin-android-extensions")
     plugin("kotlin-android")
     plugin("kotlin-kapt")
 }
 
 android {
-
     compileSdkVersion 28
 
     defaultConfig {
-
-        applicationId "com.ahmedadel.robustandroid"
 
         minSdkVersion Versions.minSdkVersion
         targetSdkVersion Versions.targetSdkVersion
 
         versionCode Versions.versionCode
         versionName Versions.versionName
-
-        multiDexEnabled true
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -34,22 +27,19 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
-    }
-
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation Dependencies.KotlinStdLib
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation Dependencies.AppCompact
 
-    implementation Dependencies.AndroidXCore
-    implementation Dependencies.AndroidXLibs
+    implementation Dependencies.KotlinStdLib
 
-    implementation Dependencies.Testing
+    implementation Dependencies.Dagger
+    kapt Dependencies.DaggerKapt
+
+    implementation Dependencies.RxJava
+
 }
