@@ -11,7 +11,11 @@ object Versions {
 
     const val versionName = "1.0"
     const val versionCode = 1
-    const val androidGradlePlugin = "3.3.1"
+
+    const val minSdkVersion = 17
+    const val targetSdkVersion = 28
+
+    const val androidGradlePlugin = "3.3.2"
 
     object SupportAndroidLibs {
         const val servicesPlugin = "3.2.1"
