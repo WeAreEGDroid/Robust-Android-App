@@ -12,17 +12,11 @@ object Versions {
     const val versionName = "1.0"
     const val versionCode = 1
 
+    const val compileSdkVersion = 28
     const val minSdkVersion = 17
     const val targetSdkVersion = 28
 
     const val androidGradlePlugin = "3.3.2"
-
-    object SupportAndroidLibs {
-        const val servicesPlugin = "3.2.1"
-        const val compileSdk = 28
-        const val minSdk = 21
-        const val targetSdk = 28
-    }
 
     object AndroidX {
         const val main = "1.0.0"
