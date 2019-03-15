@@ -1,1 +1,1 @@
-include ':ui', ':core', ':models', ':datalayer:remote', ':datalayer:local'
+include ':ui', ':core', ':models', ':datalayer:remote', ':datalayer:local', ':feature:movie', ':datalayer:datasource'

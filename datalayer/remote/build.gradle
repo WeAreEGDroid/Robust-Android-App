@@ -59,10 +59,4 @@ dependencies {
 
     implementation Dependencies.Moshi
 
-    api Dependencies.Room
-    implementation Dependencies.RoomTesting
-    kapt Dependencies.RoomKapt
-
-    implementation Dependencies.Testing
-
 }

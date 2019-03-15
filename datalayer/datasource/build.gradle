@@ -34,21 +34,27 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api project(':models')
+    api project(':core')
+    api project(':datalayer:local')
+    api project(':datalayer:remote')
 
     implementation Dependencies.AppCompact
 
     implementation Dependencies.KotlinStdLib
 
-    implementation Dependencies.RxJava
+    implementation Dependencies.Retrofit
+    implementation Dependencies.OkLog
+    implementation Dependencies.RetrofitTesting
 
-    implementation Dependencies.Dagger
-    kapt Dependencies.DaggerKapt
+    implementation Dependencies.Moshi
 
     api Dependencies.Room
     implementation Dependencies.RoomTesting
     kapt Dependencies.RoomKapt
 
-    implementation Dependencies.Testing
+    implementation Dependencies.RxJava
+
+    implementation Dependencies.Dagger
+    kapt Dependencies.DaggerKapt
 
 }
