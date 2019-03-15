@@ -17,7 +17,7 @@ import io.reactivex.Single
 interface TVDao {
 
     @get:Query("SELECT * FROM tv ORDER BY name ASC")
-    val tVs: Single<List<TVLocal>>
+    val getTVs: Single<List<TVLocal>>
 
     @Query("SELECT * FROM tv WHERE id = :tvId")
     fun getTV(tvId: Int?): Single<TVLocal>
@@ -25,7 +25,7 @@ interface TVDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertTV(tv: TVLocal)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertTVs(tvs: List<TVLocal>)
+    @Query("DELETE FROM tv")
+    fun deleteAll(): Int
 
 }

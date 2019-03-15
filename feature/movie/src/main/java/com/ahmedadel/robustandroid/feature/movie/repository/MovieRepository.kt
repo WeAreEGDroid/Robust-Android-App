@@ -26,18 +26,24 @@ constructor(
         val localMovie =
             local.getMovies.map { movieLocalList ->
                 movieLocalList.map { movieLocal ->
-                    mapper.mapFromLocalToItem(movieLocal)
+                    mapper.mapFromLocalToEntity(movieLocal)
                 }
             }
 
-        val remoteMovie =
+        val remoteMovie = if (pageNumber == 1) {
             remote.getMovies(pageNumber).map { getMovieResponse ->
                 getMovieResponse.movies?.map { movieRemote ->
-                    if (pageNumber == 1)
-                        local.insertMovie(mapper.mapFromRemoteToLocal(movieRemote))
-                    mapper.mapFromRemoteToItem(movieRemote)
+                    local.insertMovie(mapper.mapFromRemoteToLocal(movieRemote))
+                    mapper.mapFromRemoteToEntity(movieRemote)
                 }
             }
+        } else {
+            remote.getMovies(pageNumber).map { getMovieResponse ->
+                getMovieResponse.movies?.map { movieRemote ->
+                    mapper.mapFromRemoteToEntity(movieRemote)
+                }
+            }
+        }
 
         if (pageNumber == 1)
             return Single.concat<List<MovieEntity>>(localMovie, remoteMovie)
@@ -49,7 +55,7 @@ constructor(
 
         val localMovie =
             local.getMovie(movieId).map { movieLocal ->
-                mapper.mapFromLocalToItem(movieLocal)
+                mapper.mapFromLocalToEntity(movieLocal)
             }.onErrorReturn {
                 MovieEntity()
             }
@@ -57,7 +63,7 @@ constructor(
         val remoteMovie =
             remote.getMovie(movieId).map { movieRemote ->
                 local.insertMovie(mapper.mapFromRemoteToLocal(movieRemote))
-                mapper.mapFromRemoteToItem(movieRemote)
+                mapper.mapFromRemoteToEntity(movieRemote)
             }
 
         return Single.concat<MovieEntity>(localMovie, remoteMovie)
