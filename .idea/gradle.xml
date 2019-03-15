@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/datalayer/remote" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/movie" />
+            <option value="$PROJECT_DIR$/feature/person" />
             <option value="$PROJECT_DIR$/models" />
             <option value="$PROJECT_DIR$/ui" />
           </set>

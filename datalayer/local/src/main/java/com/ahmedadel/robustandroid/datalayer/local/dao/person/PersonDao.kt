@@ -17,7 +17,7 @@ import io.reactivex.Single
 interface PersonDao {
 
     @get:Query("SELECT * FROM person ORDER BY name ASC")
-    val persons: Single<List<PersonLocal>>
+    val getPersons: Single<List<PersonLocal>>
 
     @Query("SELECT * FROM person WHERE id = :personId")
     fun getPerson(personId: Int?): Single<PersonLocal>
@@ -25,7 +25,7 @@ interface PersonDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertPerson(person: PersonLocal)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPersons(persons: List<PersonLocal>)
+    @Query("DELETE FROM person")
+    fun deleteAll(): Int
 
 }
