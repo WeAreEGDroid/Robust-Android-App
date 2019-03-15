@@ -1,1 +1,3 @@
-include ':ui', ':core', ':models', ':datalayer:remote', ':datalayer:local', ':feature:movie', ':datalayer:datasource', ':feature:person'
+include ':ui', ':core', ':models',
+        ':datalayer:remote', ':datalayer:local', ':datalayer:datasource',
+        ':feature:movie', ':feature:person', ':feature:tv'

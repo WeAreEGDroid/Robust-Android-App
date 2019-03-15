@@ -8,10 +8,10 @@ import com.ahmedadel.robustandroid.models.EntityModel
  * Map from remote to entity use case model.
  */
 
-interface MapFromRemoteToItem<R, L, I : EntityModel> {
+interface MapFromRemoteToEntity<R, L, E : EntityModel> {
 
-    fun mapFromRemoteToItem(model: R): I
-    fun mapFromLocalToItem(model: L): I
+    fun mapFromRemoteToEntity(model: R): E
+    fun mapFromLocalToEntity(model: L): E
     fun mapFromRemoteToLocal(model: R): L
 
 }
