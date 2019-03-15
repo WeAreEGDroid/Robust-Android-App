@@ -37,9 +37,9 @@ dependencies {
 
     implementation Dependencies.KotlinStdLib
 
-    implementation Dependencies.Dagger
-    kapt Dependencies.DaggerKapt
+    implementation Dependencies.Moshi
 
-    implementation Dependencies.RxJava
+    api Dependencies.Room
+    kapt Dependencies.RoomKapt
 
 }

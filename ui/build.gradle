@@ -9,7 +9,7 @@ apply {
 
 android {
 
-    compileSdkVersion 28
+    compileSdkVersion Versions.compileSdkVersion
 
     defaultConfig {
 
