@@ -15,32 +15,29 @@ open class CoreComponentWrapper private constructor() {
 
     private lateinit var component: CoreComponent
 
-    private fun initializeComponent(application: Application): CoreComponent? {
+    private fun initializeComponent(application: Application) {
         component = DaggerCoreComponent.builder()
             .applicationModule(ApplicationModule(application))
             .sharedPreferencesModule(SharedPreferencesModule(application))
             .analyticsModule(AnalyticsModule(application))
             .build()
-        return component
     }
 
     companion object {
 
         private var wrapper: CoreComponentWrapper? = null
 
-        fun getInstance(application: Application): CoreComponentWrapper {
+        @Synchronized
+        private fun getInstance(application: Application): CoreComponentWrapper {
             if (wrapper == null) {
-                synchronized(CoreComponentWrapper::class.java) {
-                    if (wrapper == null) {
-                        wrapper = CoreComponentWrapper()
-                        wrapper!!.initializeComponent(application)
-                    }
+                if (wrapper == null) {
+                    wrapper = CoreComponentWrapper()
+                    wrapper!!.initializeComponent(application)
                 }
             }
             return wrapper!!
         }
 
-        fun getComponent(application: Application) =
-            getInstance(application).component
+        fun getComponent(application: Application) = getInstance(application).component
     }
 }

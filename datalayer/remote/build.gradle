@@ -1,0 +1,68 @@
+import dependencies.*
+
+apply {
+    plugin("com.android.library")
+    plugin("kotlin-android-extensions")
+    plugin("kotlin-android")
+    plugin("kotlin-kapt")
+}
+
+android {
+
+    compileSdkVersion Versions.compileSdkVersion
+
+    defaultConfig {
+
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdkVersion
+
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+
+    }
+
+    buildTypes {
+
+        debug {
+            buildConfigField("String", "BASE_API_URL", "\"${Config.STAGING_API_BASE_URL}\"")
+            buildConfigField("String", "API_KEY", "\"${Config.API_KEY}\"")
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "BASE_API_URL", "\"${Config.PROD_API_BASE_URL}\"")
+            buildConfigField("String", "API_KEY", "\"${Config.API_KEY}\"")
+        }
+
+    }
+
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(':models')
+
+    implementation Dependencies.AppCompact
+
+    implementation Dependencies.KotlinStdLib
+
+    implementation Dependencies.Retrofit
+    implementation Dependencies.OkLog
+    implementation Dependencies.RetrofitTesting
+
+    implementation Dependencies.RxJava
+
+    implementation Dependencies.Dagger
+    kapt Dependencies.DaggerKapt
+
+    implementation Dependencies.Moshi
+
+    api Dependencies.Room
+    implementation Dependencies.RoomTesting
+    kapt Dependencies.RoomKapt
+
+    implementation Dependencies.Testing
+
+}
