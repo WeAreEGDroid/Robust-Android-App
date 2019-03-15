@@ -12,5 +12,5 @@ package dependencies
 object Config {
     const val PROD_API_BASE_URL = "https://api.themoviedb.org/"
     const val STAGING_API_BASE_URL = "https://api.themoviedb.org/"
-    const val API_KEY = "twp_ocsj8PR64FIV48fHVXCy75gBruca"
+    const val API_KEY = "fc47660226072874be57974ff797a0cd"
 }
