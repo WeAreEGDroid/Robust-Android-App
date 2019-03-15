@@ -2,16 +2,16 @@ package com.ahmedadel.robustandroid.feature.movie.mapper
 
 import com.ahmedadel.robustandroid.feature.movie.entity.MovieEntity
 import com.ahmedadel.robustandroid.models.local.movie.MovieLocal
-import com.ahmedadel.robustandroid.models.mappers.MapFromRemoteToItem
+import com.ahmedadel.robustandroid.models.mappers.MapFromRemoteToEntity
 import com.ahmedadel.robustandroid.models.remote.movie.MovieRemote
 
 /**
  * Created at Tito on 3/15/19
  */
 
-class MovieMapper : MapFromRemoteToItem<MovieRemote, MovieLocal, MovieEntity> {
+class MovieMapper : MapFromRemoteToEntity<MovieRemote, MovieLocal, MovieEntity> {
 
-    override fun mapFromRemoteToItem(model: MovieRemote): MovieEntity {
+    override fun mapFromRemoteToEntity(model: MovieRemote): MovieEntity {
         with(model) {
             return MovieEntity(
                 id = id,
@@ -29,7 +29,7 @@ class MovieMapper : MapFromRemoteToItem<MovieRemote, MovieLocal, MovieEntity> {
         }
     }
 
-    override fun mapFromLocalToItem(model: MovieLocal): MovieEntity {
+    override fun mapFromLocalToEntity(model: MovieLocal): MovieEntity {
         with(model) {
             return MovieEntity(
                 id = id,

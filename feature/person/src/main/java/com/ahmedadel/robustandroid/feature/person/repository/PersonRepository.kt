@@ -26,18 +26,24 @@ constructor(
         val localPerson =
             local.getPersons.map { personLocalList ->
                 personLocalList.map { personLocal ->
-                    mapper.mapFromLocalToItem(personLocal)
+                    mapper.mapFromLocalToEntity(personLocal)
                 }
             }
 
-        val remotePerson =
+        val remotePerson = if (pageNumber == 1) {
             remote.getPersons(pageNumber).map { getPersonResponse ->
                 getPersonResponse.persons?.map { personRemote ->
-                    if (pageNumber == 1)
-                        local.insertPerson(mapper.mapFromRemoteToLocal(personRemote))
-                    mapper.mapFromRemoteToItem(personRemote)
+                    local.insertPerson(mapper.mapFromRemoteToLocal(personRemote))
+                    mapper.mapFromRemoteToEntity(personRemote)
                 }
             }
+        } else {
+            remote.getPersons(pageNumber).map { getPersonResponse ->
+                getPersonResponse.persons?.map { personRemote ->
+                    mapper.mapFromRemoteToEntity(personRemote)
+                }
+            }
+        }
 
         if (pageNumber == 1)
             return Single.concat<List<PersonEntity>>(localPerson, remotePerson)
@@ -49,7 +55,7 @@ constructor(
 
         val localPerson =
             local.getPerson(personId).map { personLocal ->
-                mapper.mapFromLocalToItem(personLocal)
+                mapper.mapFromLocalToEntity(personLocal)
             }.onErrorReturn {
                 PersonEntity()
             }
@@ -57,7 +63,7 @@ constructor(
         val remotePerson =
             remote.getPerson(personId).map { personRemote ->
                 local.insertPerson(mapper.mapFromRemoteToLocal(personRemote))
-                mapper.mapFromRemoteToItem(personRemote)
+                mapper.mapFromRemoteToEntity(personRemote)
             }
 
         return Single.concat<PersonEntity>(localPerson, remotePerson)
