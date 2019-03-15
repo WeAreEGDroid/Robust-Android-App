@@ -14,7 +14,7 @@ import androidx.room.PrimaryKey
 data class MovieLocal (
 
     @PrimaryKey(autoGenerate = true)
-    val id: Int? = null,
+    val id: Int,
 
     @ColumnInfo(name = "overview")
     val overview: String? = null,

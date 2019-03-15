@@ -17,12 +17,15 @@ import io.reactivex.Single
 interface MovieDao {
 
     @get:Query("SELECT * FROM movie ORDER BY title ASC")
-    val movies: Single<List<MovieLocal>>
+    val getMovies: Single<List<MovieLocal>>
 
     @Query("SELECT * FROM movie WHERE id = :movieId")
     fun getMovie(movieId: Int?): Single<MovieLocal>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertMovie(movie: MovieLocal)
+
+    @Query("DELETE FROM movie")
+    fun deleteAll(): Int
 
 }

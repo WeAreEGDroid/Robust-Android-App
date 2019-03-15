@@ -9,7 +9,9 @@ import com.ahmedadel.robustandroid.models.EntityModel
  */
 
 interface MapFromRemoteToItem<R, L, I : EntityModel> {
+
     fun mapFromRemoteToItem(model: R): I
     fun mapFromLocalToItem(model: L): I
     fun mapFromRemoteToLocal(model: R): L
+
 }
