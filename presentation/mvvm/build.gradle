@@ -1,0 +1,54 @@
+import dependencies.*
+
+apply {
+    plugin("com.android.library")
+    plugin("kotlin-android-extensions")
+    plugin("kotlin-android")
+    plugin("kotlin-kapt")
+}
+
+android {
+
+    compileSdkVersion Versions.compileSdkVersion
+
+    defaultConfig {
+
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdkVersion
+
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(':feature:movie')
+    api project(':feature:person')
+    api project(':feature:tv')
+
+    implementation Dependencies.AppCompact
+
+    implementation Dependencies.AndroidArchComponent
+
+    implementation Dependencies.KotlinStdLib
+
+    implementation Dependencies.RxJava
+
+    implementation Dependencies.Dagger
+    kapt Dependencies.DaggerKapt
+
+    implementation Dependencies.Testing
+
+}

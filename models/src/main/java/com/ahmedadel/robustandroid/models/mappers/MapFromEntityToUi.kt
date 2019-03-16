@@ -8,7 +8,7 @@ import com.ahmedadel.robustandroid.models.UiModel
  * Map from entity use case to ui model.
  */
 
-interface MapFromItemToUi<R, U : UiModel> {
-    fun mapToUiModel(model: R): U
-    fun mapToUiModelList(model: List<R>): List<U>
+interface MapFromEntityToUi<E, U : UiModel> {
+    fun mapToUiModel(model: E): U
+    fun mapToUiModelList(model: List<E>): List<U>
 }
