@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">RobustAndroidApp</string>
+
+    <string name="more">more</string>
+    <string name="movies">Movies</string>
+    <string name="persons">Persons</string>
+    <string name="tvs">Tvs</string>
+    <string name="no_results">No results 😓</string>
+
 </resources>

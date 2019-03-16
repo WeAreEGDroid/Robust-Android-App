@@ -14,7 +14,7 @@ import dagger.multibindings.IntoMap
  */
 
 @Module
-abstract class HomeViewModelModule(private val application: Application) {
+abstract class HomeViewModelModule {
 
     @Binds
     @IntoMap
