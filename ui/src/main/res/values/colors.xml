@@ -3,4 +3,20 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="teal_050">#e0f2f1</color> <!-- Use with black text -->
+    <color name="teal_100">#b2dfdb</color> <!-- Use with black text -->
+    <color name="teal_200">#80cbc4</color> <!-- Use with black text -->
+    <color name="teal_300">#4db6ac</color> <!-- Use with black text -->
+    <color name="teal_400">#26a69a</color> <!-- Use with black text -->
+    <color name="teal_500">#009688</color> <!-- Use with white text -->
+    <color name="teal_600">#00897b</color> <!-- Use with white text -->
+    <color name="teal_700">#00796b</color> <!-- Use with white text -->
+    <color name="teal_800">#00695c</color> <!-- Use with white text -->
+    <color name="teal_900">#004d40</color> <!-- Use with white text -->
+    <color name="teal_a100">#a7ffeb</color> <!-- Use with black text -->
+    <color name="teal_a200">#64ffda</color> <!-- Use with black text -->
+    <color name="teal_a400">#1de9b6</color> <!-- Use with black text -->
+    <color name="teal_a700">#00bfa5</color> <!-- Use with black text -->
+
 </resources>

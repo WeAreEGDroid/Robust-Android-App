@@ -28,21 +28,30 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField("String", "IMAGE_URL", "\"${Config.IMAGE_URL}\"")
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "IMAGE_URL", "\"${Config.IMAGE_URL}\"")
         }
     }
 
-    compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
+    sourceSets {
+        main {
+            res.srcDirs = [
+                    'src/main/res',
+                    'src/main/res-screens/home'
+            ]
+        }
     }
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(':presentation:mvvm')
 
     implementation Dependencies.KotlinStdLib
 
@@ -50,6 +59,13 @@ dependencies {
 
     implementation Dependencies.AndroidXCore
     implementation Dependencies.AndroidXLibs
+    implementation Dependencies.AndroidArchComponent
+
+    implementation Dependencies.Dagger
+    kapt Dependencies.DaggerKapt
+
+    implementation Dependencies.Glide
+    kapt Dependencies.GlideKapt
 
     implementation Dependencies.Testing
 }
