@@ -27,7 +27,6 @@ class HomeTVAdapter : ListAdapter<TVUiModel, HomeTVAdapter.ViewHolder>(TVDiffCal
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-
         fun bind(tv: TVUiModel) {
             itemView.tv_title.text = tv.name
             Glide.with(itemView.context)
