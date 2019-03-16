@@ -28,6 +28,7 @@
                     android:text="@string/movies"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/movie_more_btn"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/movie_more_btn"/>
@@ -35,7 +36,7 @@
             <Button
                     android:id="@+id/movie_more_btn"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:background="@color/colorPrimary"
                     android:text="@string/more"
                     android:textColor="#FFF"
@@ -99,6 +100,7 @@
                     android:text="@string/persons"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/person_more_btn"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/person_more_btn"/>
@@ -106,7 +108,7 @@
             <Button
                     android:id="@+id/person_more_btn"
                     android:layout_width="0dp"
-                    android:layout_height="42dp"
+                    android:layout_height="30dp"
                     android:background="@color/colorPrimary"
                     android:text="@string/more"
                     android:textColor="#FFF"
@@ -170,6 +172,7 @@
                     android:text="@string/tvs"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_more_btn"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/tv_more_btn"/>
@@ -177,7 +180,7 @@
             <Button
                     android:id="@+id/tv_more_btn"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:background="@color/colorPrimary"
                     android:text="@string/more"
                     android:textColor="#FFF"

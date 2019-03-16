@@ -27,7 +27,6 @@ class HomePersonAdapter : ListAdapter<PersonUiModel, HomePersonAdapter.ViewHolde
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-
         fun bind(person: PersonUiModel) {
             itemView.person_title.text = person.name
             Glide.with(itemView.context)

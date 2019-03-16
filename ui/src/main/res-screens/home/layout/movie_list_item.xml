@@ -22,7 +22,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="@string/app_name"
-                android:scaleType="fitCenter"
+                android:scaleType="centerCrop"
                 android:src="@drawable/ic_launcher_background"/>
 
         <TextView
