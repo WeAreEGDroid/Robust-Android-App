@@ -61,6 +61,9 @@ class HomeActivity : BaseActivity() {
     }
 
     private fun configUI() {
+
+        title = getString(R.string.home_title)
+
         movie_recycler_view_list.apply {
             itemAnimator = DefaultItemAnimator()
             setHasFixedSize(true)

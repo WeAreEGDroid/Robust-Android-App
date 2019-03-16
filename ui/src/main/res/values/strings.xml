@@ -6,5 +6,6 @@
     <string name="persons">Persons</string>
     <string name="tvs">Tvs</string>
     <string name="no_results">No results 😓</string>
+    <string name="home_title">Home</string>
 
 </resources>
