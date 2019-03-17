@@ -1,6 +1,7 @@
 package com.ahmedadel.robustandroid.core.di.scheduler
 
 import io.reactivex.Scheduler
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 /**
@@ -16,6 +17,6 @@ class SchedulerProvider : BaseSchedulerProvider {
     }
 
     override fun ui(): Scheduler {
-        return Schedulers.computation()
+        return AndroidSchedulers.mainThread()
     }
 }

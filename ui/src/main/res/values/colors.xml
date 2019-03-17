@@ -17,6 +17,7 @@
     <color name="teal_a100">#a7ffeb</color> <!-- Use with black text -->
     <color name="teal_a200">#64ffda</color> <!-- Use with black text -->
     <color name="teal_a400">#1de9b6</color> <!-- Use with black text -->
-    <color name="teal_a700">#00bfa5</color> <!-- Use with black text -->
+    <color name="teal_a700">#00bfa5</color>
+    <color name="semi_gray">#80999999</color> <!-- Use with black text -->
 
 </resources>
