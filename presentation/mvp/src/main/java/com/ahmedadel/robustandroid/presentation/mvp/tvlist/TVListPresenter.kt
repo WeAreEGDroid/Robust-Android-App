@@ -23,10 +23,10 @@ constructor(
 
         execute(
             loadingConsumer = Consumer {
-                getView()?.showLoading(true)
+                getView()?.showLoading(true, pageNumber == 1)
             },
             successConsumer = Consumer { tvItemList ->
-                getView()?.showLoading(false)
+                getView()?.showLoading(false, pageNumber == 1)
                 tvItemList?.let {
                     getView()?.showTVs(mapper.mapToUiModelList(it))
                 }

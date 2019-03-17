@@ -16,7 +16,7 @@ import io.reactivex.Single
 @Dao
 interface MovieDao {
 
-    @get:Query("SELECT * FROM movie ORDER BY title ASC")
+    @get:Query("SELECT * FROM movie")
     val getMovies: Single<List<MovieLocal>>
 
     @Query("SELECT * FROM movie WHERE id = :movieId")

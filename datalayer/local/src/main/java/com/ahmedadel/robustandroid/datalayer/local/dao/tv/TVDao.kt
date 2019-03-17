@@ -16,7 +16,7 @@ import io.reactivex.Single
 @Dao
 interface TVDao {
 
-    @get:Query("SELECT * FROM tv ORDER BY name ASC")
+    @get:Query("SELECT * FROM tv")
     val getTVs: Single<List<TVLocal>>
 
     @Query("SELECT * FROM tv WHERE id = :tvId")
