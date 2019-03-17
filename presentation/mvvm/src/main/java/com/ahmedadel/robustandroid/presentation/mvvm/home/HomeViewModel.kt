@@ -12,8 +12,8 @@ import com.ahmedadel.robustandroid.presentation.mvvm.home.mapper.TVMapper
 import com.ahmedadel.robustandroid.presentation.mvvm.home.uimodel.MovieUiModel
 import com.ahmedadel.robustandroid.presentation.mvvm.home.uimodel.PersonUiModel
 import com.ahmedadel.robustandroid.presentation.mvvm.home.uimodel.TVUiModel
-import com.ahmedadel.robustandroid.presentation.mvvm.viewmodel.BaseViewModel
-import com.ahmedadel.robustandroid.presentation.mvvm.viewmodel.ViewState
+import com.ahmedadel.robustandroid.presentation.mvvm.BaseViewModel
+import com.ahmedadel.robustandroid.presentation.mvvm.ViewState
 import io.reactivex.functions.Consumer
 import javax.inject.Inject
 

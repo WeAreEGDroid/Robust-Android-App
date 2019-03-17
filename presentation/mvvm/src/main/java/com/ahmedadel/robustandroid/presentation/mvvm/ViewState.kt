@@ -1,4 +1,4 @@
-package com.ahmedadel.robustandroid.presentation.mvvm.viewmodel
+package com.ahmedadel.robustandroid.presentation.mvvm
 
 /**
  * Created at ahmedadel on 2/25/19
@@ -20,15 +20,27 @@ class ViewState<T> private constructor(
     companion object {
 
         fun <T> success(data: T): ViewState<T> {
-            return ViewState(Status.SUCCESS, data, null)
+            return ViewState(
+                Status.SUCCESS,
+                data,
+                null
+            )
         }
 
         fun <T> error(msg: String?): ViewState<T> {
-            return ViewState(Status.ERROR, null, msg)
+            return ViewState(
+                Status.ERROR,
+                null,
+                msg
+            )
         }
 
         fun <T> loading(): ViewState<T> {
-            return ViewState(Status.LOADING, null, null)
+            return ViewState(
+                Status.LOADING,
+                null,
+                null
+            )
         }
     }
 

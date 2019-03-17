@@ -20,6 +20,7 @@
             <option value="$PROJECT_DIR$/feature/tv" />
             <option value="$PROJECT_DIR$/models" />
             <option value="$PROJECT_DIR$/presentation" />
+            <option value="$PROJECT_DIR$/presentation/mvp" />
             <option value="$PROJECT_DIR$/presentation/mvvm" />
             <option value="$PROJECT_DIR$/ui" />
           </set>
