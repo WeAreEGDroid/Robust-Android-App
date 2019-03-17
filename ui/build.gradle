@@ -43,7 +43,9 @@ android {
             res.srcDirs = [
                     'src/main/res',
                     'src/main/res-screens/home',
-                    'src/main/res-screens/movie-list'
+                    'src/main/res-screens/movie-list',
+                    'src/main/res-screens/person-list',
+                    'src/main/res-screens/tv-list'
             ]
         }
     }

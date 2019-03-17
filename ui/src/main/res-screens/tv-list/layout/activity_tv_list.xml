@@ -9,7 +9,7 @@
         tools:context=".movielist.MovieListActivity">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:id="@+id/movie_list_swipe_refresh_layout"
+            android:id="@+id/tv_list_swipe_refresh_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -18,7 +18,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
         <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/movie_list_view"
+                android:id="@+id/tv_list_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
@@ -40,7 +40,7 @@
             app:layout_constraintTop_toTopOf="parent"/>
 
     <ProgressBar
-            android:id="@+id/movie_list_load_more_progress_bar"
+            android:id="@+id/tv_list_load_more_progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="32dp"

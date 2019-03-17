@@ -29,6 +29,8 @@ class MovieListActivity : BaseActivity(), MovieListContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_list)
 
+        buildNavigateUpArrow()
+
         presenter.setView(this)
 
         configUI()
