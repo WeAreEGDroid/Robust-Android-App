@@ -12,7 +12,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-
+        <activity android:name=".tvlist.TVListActivity">
+        </activity>
+        <activity android:name=".personlist.PersonListActivity">
+        </activity>
         <activity
                 android:name=".MainActivity"
                 android:theme="@style/NoActionBar">
@@ -22,11 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <activity android:name=".home.HomeActivity"/>
-
         <activity android:name=".movielist.MovieListActivity"/>
-
     </application>
 
 </manifest>
