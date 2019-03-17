@@ -13,11 +13,13 @@ import com.ahmedadel.robustandroid.home.adapter.HomePersonAdapter
 import com.ahmedadel.robustandroid.home.adapter.HomeTVAdapter
 import com.ahmedadel.robustandroid.home.di.HomeActivityComponentWrapper
 import com.ahmedadel.robustandroid.movielist.MovieListActivity
+import com.ahmedadel.robustandroid.personlist.PersonListActivity
 import com.ahmedadel.robustandroid.presentation.mvvm.ViewState
 import com.ahmedadel.robustandroid.presentation.mvvm.home.HomeViewModel
 import com.ahmedadel.robustandroid.presentation.mvvm.home.uimodel.MovieUiModel
 import com.ahmedadel.robustandroid.presentation.mvvm.home.uimodel.PersonUiModel
 import com.ahmedadel.robustandroid.presentation.mvvm.home.uimodel.TVUiModel
+import com.ahmedadel.robustandroid.tvlist.TVListActivity
 import kotlinx.android.synthetic.main.activity_home.*
 import javax.inject.Inject
 
@@ -86,6 +88,13 @@ class HomeActivity : BaseActivity() {
         movie_more_btn.setOnClickListener {
             MovieListActivity.start(this)
         }
+        person_more_btn.setOnClickListener {
+            PersonListActivity.start(this)
+        }
+        tv_more_btn.setOnClickListener {
+            TVListActivity.start(this)
+        }
+
     }
 
     private fun getMovies() {
