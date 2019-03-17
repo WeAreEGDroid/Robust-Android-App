@@ -4,6 +4,6 @@ interface BaseView {
 
     fun showErrorMessage(message: String?)
 
-    fun showLoading(isLoading: Boolean)
+    fun showLoading(isLoading: Boolean, isFirstPage: Boolean)
 
 }

@@ -7,5 +7,6 @@
     <string name="tvs">Tvs</string>
     <string name="no_results">No results 😓</string>
     <string name="home_title">Home</string>
+    <string name="movie_list_title">Movie List</string>
 
 </resources>

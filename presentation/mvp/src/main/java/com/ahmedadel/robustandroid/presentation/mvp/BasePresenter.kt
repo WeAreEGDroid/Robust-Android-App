@@ -53,7 +53,7 @@ constructor(
         disposables.add(disposable)
     }
 
-    protected fun clear() {
+    fun clear() {
         dispose()
     }
 

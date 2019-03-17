@@ -42,7 +42,8 @@ android {
         main {
             res.srcDirs = [
                     'src/main/res',
-                    'src/main/res-screens/home'
+                    'src/main/res-screens/home',
+                    'src/main/res-screens/movie-list'
             ]
         }
     }
@@ -52,6 +53,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api project(':presentation:mvvm')
+    api project(':presentation:mvp')
 
     implementation Dependencies.KotlinStdLib
 

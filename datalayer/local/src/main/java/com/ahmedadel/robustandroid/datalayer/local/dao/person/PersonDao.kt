@@ -16,7 +16,7 @@ import io.reactivex.Single
 @Dao
 interface PersonDao {
 
-    @get:Query("SELECT * FROM person ORDER BY name ASC")
+    @get:Query("SELECT * FROM person")
     val getPersons: Single<List<PersonLocal>>
 
     @Query("SELECT * FROM person WHERE id = :personId")

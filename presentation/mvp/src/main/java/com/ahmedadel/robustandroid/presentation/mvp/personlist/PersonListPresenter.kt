@@ -23,10 +23,10 @@ constructor(
 
         execute(
             loadingConsumer = Consumer {
-                getView()?.showLoading(true)
+                getView()?.showLoading(true, pageNumber == 1)
             },
             successConsumer = Consumer { personItemList ->
-                getView()?.showLoading(false)
+                getView()?.showLoading(false, pageNumber == 1)
                 personItemList?.let {
                     getView()?.showPersons(mapper.mapToUiModelList(it))
                 }
