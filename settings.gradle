@@ -1,4 +1,4 @@
 include ':ui', ':core', ':models',
         ':datalayer:remote', ':datalayer:local', ':datalayer:datasource',
         ':feature:movie', ':feature:person', ':feature:tv',
-        ':presentation:mvvm'
+        ':presentation:mvvm', ':presentation:mvp'

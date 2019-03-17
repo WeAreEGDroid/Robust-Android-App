@@ -16,7 +16,7 @@ import com.ahmedadel.robustandroid.presentation.mvvm.home.HomeViewModel
 import com.ahmedadel.robustandroid.presentation.mvvm.home.uimodel.MovieUiModel
 import com.ahmedadel.robustandroid.presentation.mvvm.home.uimodel.PersonUiModel
 import com.ahmedadel.robustandroid.presentation.mvvm.home.uimodel.TVUiModel
-import com.ahmedadel.robustandroid.presentation.mvvm.viewmodel.ViewState
+import com.ahmedadel.robustandroid.presentation.mvvm.ViewState
 import kotlinx.android.synthetic.main.activity_home.*
 import javax.inject.Inject
 
