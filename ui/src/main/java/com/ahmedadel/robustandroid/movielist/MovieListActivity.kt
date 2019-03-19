@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ahmedadel.robustandroid.BaseActivity
 import com.ahmedadel.robustandroid.R
+import com.ahmedadel.robustandroid.moviedetails.MovieDetailsActivity
 import com.ahmedadel.robustandroid.movielist.adapter.MovieListAdapter
 import com.ahmedadel.robustandroid.movielist.di.MovieListActivityComponentWrapper
 import com.ahmedadel.robustandroid.presentation.mvp.movielist.MovieListContract
@@ -67,6 +68,12 @@ class MovieListActivity : BaseActivity(), MovieListContract.View {
                 getMovies(page)
             }
         })
+
+        movieListAdapter.onMovieClickListener = object : MovieListAdapter.OnMovieClickListener {
+            override fun setOnMovieClickListener(movieId: Int) {
+                MovieDetailsActivity.start(this@MovieListActivity, movieId)
+            }
+        }
 
     }
 
