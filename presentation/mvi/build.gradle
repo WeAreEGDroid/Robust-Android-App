@@ -35,7 +35,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api project(':feature:movie')
-    api project(':feature:person')
+    api project(':feature:tv')
 
     implementation Dependencies.AppCompact
 
