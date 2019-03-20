@@ -33,6 +33,8 @@
 
         <activity android:name=".personlist.PersonListActivity"/>
 
+        <activity android:name=".tvdetails.TVDetailsActivity"/>
+
     </application>
 
 </manifest>

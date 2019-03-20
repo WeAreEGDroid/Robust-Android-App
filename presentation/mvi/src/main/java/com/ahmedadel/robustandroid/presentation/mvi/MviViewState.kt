@@ -8,3 +8,12 @@ package com.ahmedadel.robustandroid.presentation.mvi
  */
 
 interface MviViewState
+
+abstract class CompoundViewState<
+        V1 : MviViewState,
+        V2 : MviViewState,
+        V3 : MviViewState>(
+    open val first: V1,
+    open val second: V2,
+    open val third: V3
+) : MviViewState

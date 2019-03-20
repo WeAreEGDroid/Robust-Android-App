@@ -69,6 +69,28 @@ constructor(
         return Single.concat<TVEntity>(localTV, remoteTV)
     }
 
+    fun getSimilarTVs(tvId: Int): Flowable<List<TVEntity>?> {
+
+        val remoteTV = remote.getSimilarTVs(tvId).map { getTVsResponse ->
+            getTVsResponse.tVs?.map { tvRemote ->
+                mapper.mapFromRemoteToEntity(tvRemote)
+            }
+        }
+
+        return remoteTV.toFlowable()
+    }
+
+    fun getRecommendationTVs(tvId: Int): Flowable<List<TVEntity>?> {
+
+        val remoteTV = remote.getRecommendationTVs(tvId).map { getTVsResponse ->
+            getTVsResponse.tVs?.map { tvRemote ->
+                mapper.mapFromRemoteToEntity(tvRemote)
+            }
+        }
+
+        return remoteTV.toFlowable()
+    }
+
     @Suppress("unused")
     fun clearDatabase(): Single<Int> {
         return Observable.fromCallable { local.deleteAll() }.firstOrError()

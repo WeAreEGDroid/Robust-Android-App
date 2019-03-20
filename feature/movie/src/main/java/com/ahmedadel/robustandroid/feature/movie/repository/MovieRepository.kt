@@ -69,6 +69,30 @@ constructor(
         return Single.concat<MovieEntity>(localMovie, remoteMovie)
     }
 
+    fun getSimilarMovies(movieId: Int): Flowable<List<MovieEntity>?> {
+
+        val remoteMovie =
+            remote.getSimilarMovies(movieId).map { getMovieResponse ->
+                getMovieResponse.movies?.map { movieRemote ->
+                    mapper.mapFromRemoteToEntity(movieRemote)
+                }
+            }
+
+        return remoteMovie.toFlowable()
+    }
+
+    fun getRecommendationMovies(movieId: Int): Flowable<List<MovieEntity>?> {
+
+        val remoteMovie =
+            remote.getRecommendationMovies(movieId).map { getMovieResponse ->
+                getMovieResponse.movies?.map { movieRemote ->
+                    mapper.mapFromRemoteToEntity(movieRemote)
+                }
+            }
+
+        return remoteMovie.toFlowable()
+    }
+
     @Suppress("unused")
     fun clearDatabase(): Single<Int> {
         return Observable.fromCallable { local.deleteAll() }.firstOrError()

@@ -18,10 +18,12 @@ class TVListAdapter : RecyclerView.Adapter<TVListAdapter.ViewHolder>() {
 
     private val tvs: MutableList<TVUiModel> = ArrayList()
 
+    var onTVItemClickListener: OnTVItemClickListener? = null
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         return ViewHolder(
-            LayoutInflater.from(viewGroup.context)
-                .inflate(R.layout.activity_tv_list_item, viewGroup, false)
+            LayoutInflater.from(viewGroup.context).inflate(R.layout.activity_tv_list_item, viewGroup, false),
+            onTVItemClickListener
         )
     }
 
@@ -46,7 +48,12 @@ class TVListAdapter : RecyclerView.Adapter<TVListAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    interface OnTVItemClickListener {
+        fun setOnTVItemClickListener(tvId: Int)
+    }
+
+    class ViewHolder(itemView: View, private val onTVItemClickListener: OnTVItemClickListener?) :
+        RecyclerView.ViewHolder(itemView) {
 
         fun bind(tv: TVUiModel) {
             itemView.tv_title.text = tv.name
@@ -54,6 +61,9 @@ class TVListAdapter : RecyclerView.Adapter<TVListAdapter.ViewHolder>() {
             Glide.with(itemView.context)
                 .load(BuildConfig.IMAGE_URL + tv.posterPath)
                 .into(itemView.tv_image)
+            itemView.setOnClickListener {
+                onTVItemClickListener?.setOnTVItemClickListener(tv.id)
+            }
         }
 
     }

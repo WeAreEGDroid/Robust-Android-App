@@ -46,7 +46,8 @@ android {
                     'src/main/res-screens/movie-list',
                     'src/main/res-screens/person-list',
                     'src/main/res-screens/tv-list',
-                    'src/main/res-screens/movie-details'
+                    'src/main/res-screens/movie-details',
+                    'src/main/res-screens/tv-details'
             ]
         }
     }
