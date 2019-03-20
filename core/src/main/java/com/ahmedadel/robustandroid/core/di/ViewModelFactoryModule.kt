@@ -1,4 +1,4 @@
-package com.ahmedadel.robustandroid.presentation.mvvm.di
+package com.ahmedadel.robustandroid.core.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

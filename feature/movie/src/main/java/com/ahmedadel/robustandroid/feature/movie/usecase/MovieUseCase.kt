@@ -15,4 +15,8 @@ constructor(private val repository: MovieRepository) {
 
     fun getMovie(movieId: Int) = repository.getMovie(movieId)
 
+    fun getSimilarMovies(movieId: Int) = repository.getSimilarMovies(movieId)
+
+    fun getRecommendationMovies(movieId: Int) = repository.getRecommendationMovies(movieId)
+
 }

@@ -1,10 +1,7 @@
 package com.ahmedadel.robustandroid.presentation.mvi
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import io.reactivex.Observable
 import io.reactivex.disposables.CompositeDisposable
 
 /**
@@ -17,30 +14,17 @@ import io.reactivex.disposables.CompositeDisposable
 abstract class MviViewModel<I : MviIntent, A : MviAction, S : MviViewState> :
     ViewModel() {
 
-    protected val disposables: CompositeDisposable = CompositeDisposable()
-
-    protected val state = MutableLiveData<S>()
+    val disposables: CompositeDisposable = CompositeDisposable()
 
     private val tag by lazy {
         javaClass.simpleName
     }
 
-    fun states(): LiveData<S> =
-        MediatorLiveData<S>().apply {
-            addSource(state) { data ->
-                Log.d("MviViewModel", "$tag: Received state: $data")
-                setValue(data)
-            }
-        }
+    abstract fun processIntents(intents: Observable<I>)
 
-    fun processIntent(intent: I) {
-        Log.d("MviViewModel", "$tag: Received intent: $intent")
-        getProcessor().actions.onNext(actionFromIntent(intent))
-    }
+    abstract fun states(): Observable<S>
 
     protected abstract fun actionFromIntent(intent: I): A
-
-    protected abstract fun getProcessor(): MviProcessor<A>
 
     override fun onCleared() {
         disposables.clear()

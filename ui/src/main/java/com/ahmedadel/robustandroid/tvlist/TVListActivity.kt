@@ -11,6 +11,7 @@ import com.ahmedadel.robustandroid.R
 import com.ahmedadel.robustandroid.presentation.mvp.tvlist.TVListContract
 import com.ahmedadel.robustandroid.presentation.mvp.tvlist.TVListPresenter
 import com.ahmedadel.robustandroid.presentation.mvp.tvlist.uimodel.TVUiModel
+import com.ahmedadel.robustandroid.tvdetails.TVDetailsActivity
 import com.ahmedadel.robustandroid.tvlist.adapter.TVListAdapter
 import com.ahmedadel.robustandroid.tvlist.di.TVListActivityComponentWrapper
 import com.ahmedadel.robustandroid.widget.EndlessRecyclerViewScrollListener
@@ -67,6 +68,12 @@ class TVListActivity : BaseActivity(), TVListContract.View {
                 getTVs(page)
             }
         })
+
+        tvListAdapter.onTVItemClickListener = object : TVListAdapter.OnTVItemClickListener {
+            override fun setOnTVItemClickListener(tvId: Int) {
+                TVDetailsActivity.start(this@TVListActivity, tvId)
+            }
+        }
 
     }
 

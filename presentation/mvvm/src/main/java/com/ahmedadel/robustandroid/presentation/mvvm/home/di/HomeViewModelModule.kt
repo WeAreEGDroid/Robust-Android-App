@@ -2,7 +2,7 @@ package com.ahmedadel.robustandroid.presentation.mvvm.home.di
 
 import androidx.lifecycle.ViewModel
 import com.ahmedadel.robustandroid.core.di.PresentationScope
-import com.ahmedadel.robustandroid.presentation.mvvm.di.ViewModelKey
+import com.ahmedadel.robustandroid.core.di.ViewModelKey
 import com.ahmedadel.robustandroid.presentation.mvvm.home.HomeViewModel
 import dagger.Binds
 import dagger.Module

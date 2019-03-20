@@ -29,6 +29,14 @@ interface ApiService {
 
     @GET("/3/movie/{id}")
     fun getMovie(@Path("id") movieId: Int?): Single<MovieRemote>
+
+    @GET("/3/movie/{id}/recommendations")
+    fun getRecommendationMovies(@Path("id") movieId: Int?, @Query("page") pageNumber: Int = 10)
+            : Single<MovieListRemote>
+
+    @GET("/3/movie/{id}/similar")
+    fun getSimilarMovies(@Path("id") movieId: Int?, @Query("page") pageNumber: Int = 10)
+            : Single<MovieListRemote>
     // ---------------------------------------------------------------------------------------- //
 
     // TV APIs
@@ -37,6 +45,14 @@ interface ApiService {
 
     @GET("/3/tv/{id}")
     fun getTV(@Path("id") tvId: Int?): Single<TVRemote>
+
+    @GET("/3/tv/{id}/recommendations")
+    fun getRecommendationTVs(@Path("id") tvId: Int?, @Query("page") pageNumber: Int = 10)
+            : Single<TVListRemote>
+
+    @GET("/3/tv/{id}/similar")
+    fun getSimilarTVs(@Path("id") tvId: Int?, @Query("page") pageNumber: Int = 10)
+            : Single<TVListRemote>
     // ---------------------------------------------------------------------------------------- //
 
     // Person APIs

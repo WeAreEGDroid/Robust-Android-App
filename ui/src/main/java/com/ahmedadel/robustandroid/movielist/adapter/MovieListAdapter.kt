@@ -18,6 +18,8 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
 
     private val movies: MutableList<MovieUiModel> = ArrayList()
 
+    var onMovieClickListener: OnMovieClickListener? = null
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(viewGroup.context)
@@ -26,7 +28,7 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        viewHolder.bind(movies[position])
+        viewHolder.bind(movies[position], onMovieClickListener)
     }
 
     override fun getItemCount() = movies.size
@@ -46,14 +48,24 @@ class MovieListAdapter : RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
+    interface OnMovieClickListener {
+        fun setOnMovieClickListener(movieId: Int)
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(movie: MovieUiModel) {
+        fun bind(
+            movie: MovieUiModel,
+            onMovieClickListener: OnMovieClickListener?
+        ) {
             itemView.movie_title.text = movie.title
             itemView.movie_desc.text = movie.overview
             Glide.with(itemView.context)
                 .load(BuildConfig.IMAGE_URL + movie.posterPath)
                 .into(itemView.movie_image)
+            itemView.setOnClickListener {
+                onMovieClickListener?.setOnMovieClickListener(movie.id)
+            }
         }
 
     }
