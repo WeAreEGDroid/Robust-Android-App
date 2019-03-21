@@ -1,4 +1,4 @@
-package com.ahmedadel.robustandroid.home.adapter
+package com.ahmedadel.robustandroid.moviedetails.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,21 +6,25 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ahmedadel.robustandroid.BuildConfig
 import com.ahmedadel.robustandroid.R
-import com.ahmedadel.robustandroid.presentation.mvvm.home.uimodel.MovieUiModel
+import com.ahmedadel.robustandroid.presentation.mvi.movie.uimodel.MovieUiModel
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 
-class HomeMovieAdapter : RecyclerView.Adapter<HomeMovieAdapter.ViewHolder>() {
+/**
+ * Created at Tito on 3/21/19
+ */
+
+class RecommendationMoviesAdapter : RecyclerView.Adapter<RecommendationMoviesAdapter.ViewHolder>() {
 
     private val movies: MutableList<MovieUiModel> = ArrayList()
 
-    var onMovieClickListener: OnMovieClickListener? = null
+    var onRecommendationMovieClickListener: OnRecommendationMovieClickListener? = null
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(viewGroup.context)
                 .inflate(R.layout.movie_list_item, viewGroup, false),
-            onMovieClickListener
+            onRecommendationMovieClickListener
         )
     }
 
@@ -48,12 +52,14 @@ class HomeMovieAdapter : RecyclerView.Adapter<HomeMovieAdapter.ViewHolder>() {
         notifyDataSetChanged()
     }
 
-    interface OnMovieClickListener {
-        fun setOnMovieClickListener(movieId: Int)
+    interface OnRecommendationMovieClickListener {
+        fun setRecommendationMovieClickListener(movieId: Int)
     }
 
-    class ViewHolder(itemView: View, private val onMovieClickListener: OnMovieClickListener?) :
-        RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(
+        itemView: View,
+        private val onRecommendationMovieClickListener: OnRecommendationMovieClickListener?
+    ) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(movie: MovieUiModel) {
             itemView.movie_title.text = movie.title
@@ -61,7 +67,7 @@ class HomeMovieAdapter : RecyclerView.Adapter<HomeMovieAdapter.ViewHolder>() {
                 .load(BuildConfig.IMAGE_URL + movie.posterPath)
                 .into(itemView.movie_image)
             itemView.setOnClickListener {
-                onMovieClickListener?.setOnMovieClickListener(movie.id)
+                onRecommendationMovieClickListener?.setRecommendationMovieClickListener(movie.id)
             }
         }
 

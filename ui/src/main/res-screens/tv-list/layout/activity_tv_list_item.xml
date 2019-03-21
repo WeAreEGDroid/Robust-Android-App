@@ -6,6 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:cardCornerRadius="5dp"
         app:cardUseCompatPadding="true">
 
@@ -36,7 +38,9 @@
                 android:textStyle="bold"
                 android:textColor="@android:color/black"
                 android:textSize="26sp"
-                tools:text="Movie title"/>
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                tools:text="TV title"/>
 
         <TextView
                 android:id="@+id/tv_desc"
@@ -49,7 +53,9 @@
                 android:textColor="@android:color/black"
                 android:textSize="20sp"
                 android:layout_marginBottom="14dp"
-                tools:text="Movie description"/>
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                tools:text="TV description"/>
 
     </LinearLayout>
 
