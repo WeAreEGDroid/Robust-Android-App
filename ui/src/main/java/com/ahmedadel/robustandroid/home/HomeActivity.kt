@@ -12,6 +12,7 @@ import com.ahmedadel.robustandroid.home.adapter.HomeMovieAdapter
 import com.ahmedadel.robustandroid.home.adapter.HomePersonAdapter
 import com.ahmedadel.robustandroid.home.adapter.HomeTVAdapter
 import com.ahmedadel.robustandroid.home.di.HomeActivityComponentWrapper
+import com.ahmedadel.robustandroid.moviedetails.MovieDetailsActivity
 import com.ahmedadel.robustandroid.movielist.MovieListActivity
 import com.ahmedadel.robustandroid.personlist.PersonListActivity
 import com.ahmedadel.robustandroid.presentation.mvvm.ViewState
@@ -83,6 +84,12 @@ class HomeActivity : BaseActivity() {
             itemAnimator = DefaultItemAnimator()
             setHasFixedSize(true)
             adapter = tvAdapter
+        }
+
+        movieAdapter.onMovieClickListener = object : HomeMovieAdapter.OnMovieClickListener {
+            override fun setOnMovieClickListener(movieId: Int) {
+                MovieDetailsActivity.start(this@HomeActivity, movieId)
+            }
         }
 
         movie_more_btn.setOnClickListener {

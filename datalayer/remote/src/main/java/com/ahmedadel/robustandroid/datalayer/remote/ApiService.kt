@@ -31,11 +31,11 @@ interface ApiService {
     fun getMovie(@Path("id") movieId: Int?): Single<MovieRemote>
 
     @GET("/3/movie/{id}/recommendations")
-    fun getRecommendationMovies(@Path("id") movieId: Int?, @Query("page") pageNumber: Int = 10)
+    fun getRecommendationMovies(@Path("id") movieId: Int?, @Query("page") pageNumber: Int = 1)
             : Single<MovieListRemote>
 
     @GET("/3/movie/{id}/similar")
-    fun getSimilarMovies(@Path("id") movieId: Int?, @Query("page") pageNumber: Int = 10)
+    fun getSimilarMovies(@Path("id") movieId: Int?, @Query("page") pageNumber: Int = 1)
             : Single<MovieListRemote>
     // ---------------------------------------------------------------------------------------- //
 
@@ -47,11 +47,11 @@ interface ApiService {
     fun getTV(@Path("id") tvId: Int?): Single<TVRemote>
 
     @GET("/3/tv/{id}/recommendations")
-    fun getRecommendationTVs(@Path("id") tvId: Int?, @Query("page") pageNumber: Int = 10)
+    fun getRecommendationTVs(@Path("id") tvId: Int?, @Query("page") pageNumber: Int = 1)
             : Single<TVListRemote>
 
     @GET("/3/tv/{id}/similar")
-    fun getSimilarTVs(@Path("id") tvId: Int?, @Query("page") pageNumber: Int = 10)
+    fun getSimilarTVs(@Path("id") tvId: Int?, @Query("page") pageNumber: Int = 1)
             : Single<TVListRemote>
     // ---------------------------------------------------------------------------------------- //
 

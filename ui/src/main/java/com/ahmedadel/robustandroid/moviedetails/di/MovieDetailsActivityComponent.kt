@@ -11,6 +11,9 @@ import dagger.Component
 
 @ActivityScope
 @Component(
+    modules = [
+        MovieDetailsActivityModule::class
+    ],
     dependencies = [
         MovieDetailsComponent::class
     ]

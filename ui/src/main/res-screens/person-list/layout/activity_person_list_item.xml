@@ -6,6 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
         app:cardCornerRadius="5dp"
         app:cardUseCompatPadding="true">
 
@@ -34,6 +36,8 @@
                 android:maxLines="1"
                 android:padding="5dp"
                 android:textStyle="bold"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:textColor="@android:color/black"
                 android:textSize="26sp"
                 tools:text="Person title"/>
